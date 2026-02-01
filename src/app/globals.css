@@ -2,25 +2,34 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --font-inter: "Inter", sans-serif;
+  --font-outfit: "Outfit", sans-serif;
+  
+  --color-titanium: #ffffff;
+  --color-ghost: #f8f9fa;
+  --color-citrus: #d97757;
+  --color-void: #0a0a0a;
+  --color-steel: #333333;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  body {
+    @apply bg-titanium text-void font-inter antialiased;
+    background-image: radial-gradient(circle at 50% 50%, rgba(217, 119, 87, 0.05) 0%, transparent 100%);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer components {
+  .btn-citrus {
+    @apply bg-citrus text-white font-bold py-3 px-8 rounded-sm transition-all duration-300 hover:shadow-[0_0_20px_rgba(217,119,87,0.4)] hover:scale-105 active:scale-95 uppercase tracking-widest;
+  }
+  
+  .glass-card {
+    @apply bg-white/80 backdrop-blur-xl border border-ghost shadow-[0_10px_30px_rgba(0,0,0,0.05)] rounded-sm p-6;
+  }
+  
+  .futuristic-title {
+    @apply font-outfit font-extrabold uppercase tracking-[0.2em] text-void;
+  }
 }
