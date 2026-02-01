@@ -180,6 +180,7 @@ export default function Home() {
               <h3 className="futuristic-title text-2xl mb-8">BESPOKE EXECUTION</h3>
               <div className="space-y-6">
                 {[
+                  { s: "SEO Optimization (Goldie)", r: "£75/hr" },
                   { s: "AI Automation & Gen", r: "£75/hr" },
                   { s: "Course & Training Creation", r: "£60/hr" },
                   { s: "Video Editing & Animation", r: "£50/hr" },
@@ -305,6 +306,43 @@ export default function Home() {
           </div>
         </div>
       </div>
+
+      {/* --- LEAD GENERATION (SIGNAL INTAKE) --- */}
+      <section id="connect" className="relative z-10 py-32 bg-ghost/30">
+        <div className="max-w-3xl mx-auto px-8">
+          <div className="glass-card !p-12 text-center">
+            <h2 className="futuristic-title text-3xl mb-4">INITIATE SIGNAL</h2>
+            <p className="text-steel font-light mb-12">Ready to engineer your edge? Submit your project parameters for an agentic audit.</p>
+
+            <form className="space-y-6 text-left">
+              <div className="grid md:grid-cols-2 gap-6">
+                <div>
+                  <label className="text-[10px] font-black tracking-widest text-citrus mb-2 block uppercase">Project Name</label>
+                  <input type="text" className="w-full bg-titanium border-b border-void/10 p-4 font-outfit focus:outline-none focus:border-citrus transition-colors" placeholder="e.g. AGOS_SYNC_V1" />
+                </div>
+                <div>
+                  <label className="text-[10px] font-black tracking-widest text-citrus mb-2 block uppercase">Budget Tier</label>
+                  <select className="w-full bg-titanium border-b border-void/10 p-4 font-outfit focus:outline-none focus:border-citrus transition-colors appearance-none">
+                    <option>THE VISIONARY (£1,000+)</option>
+                    <option>THE ARCHITECT (£2,500+)</option>
+                    <option>THE OPERATING SYSTEM (£5,000+)</option>
+                    <option>BESPOKE / HOURLY</option>
+                  </select>
+                </div>
+              </div>
+              <div>
+                <label className="text-[10px] font-black tracking-widest text-citrus mb-2 block uppercase">Intelligence Brief</label>
+                <textarea className="w-full bg-titanium border-b border-void/10 p-4 font-outfit focus:outline-none focus:border-citrus transition-colors h-32" placeholder="Describe the mission parameters..."></textarea>
+              </div>
+              <button type="submit" className="btn-citrus w-full mt-8">TRANSMIT SIGNAL</button>
+            </form>
+
+            <p className="mt-8 text-[8px] font-bold text-void/20 tracking-[.3em] uppercase">
+              SECURE SUPABASE UPLINK: ENCRYPTED
+            </p>
+          </div>
+        </div>
+      </section>
 
       {/* --- FOOTER --- */}
       <footer className="relative z-10 py-24 border-t border-void/5">
