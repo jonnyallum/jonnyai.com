@@ -31,18 +31,18 @@ export default function Home() {
       {/* --- HERO SECTION --- */}
       <main className="relative z-10 max-w-7xl mx-auto px-8 pt-24 pb-48">
         <div className="max-w-3xl">
-          <p className="text-citrus font-bold tracking-[.4em] mb-6 animate-pulse">SYSTEM STATUS: OPTIMAL</p>
-          <h1 className="font-outfit text-7xl md:text-9xl font-black leading-none mb-8 text-void tracking-tighter">
-            THE ARCHITECT'S <br />
-            <span className="text-citrus">CONSOLE.</span>
+          <p className="text-citrus font-bold tracking-[.4em] mb-6 animate-pulse">SCALING SMALL BUSINESSES WITH AGENTIC AI</p>
+          <h1 className="font-outfit text-7xl md:text-9xl font-black leading-none mb-8 text-void tracking-tighter uppercase">
+            THE UNFAIR <br />
+            <span className="text-citrus text-6xl md:text-8xl">ADVANTAGE.</span>
           </h1>
           <p className="text-steel text-xl md:text-2xl font-light mb-12 max-w-2xl leading-relaxed">
-            Jonny Allum Innovations Ltd engineering high-conviction autonomous systems. We bridge the gap between deterministic logic and high-performance craft.
+            Jonny Allum Innovations Ltd integrates high-conviction AI into small businesses. We replace manual drag with autonomous velocity, engineered for growth.
           </p>
           <div className="flex flex-wrap gap-6">
-            <button className="btn-citrus">INITIATE PARTNERSHIP</button>
+            <button className="btn-citrus">AUTOMATE MY BUSINESS</button>
             <button className="px-8 py-3 border border-void/10 font-bold uppercase tracking-widest text-xs hover:bg-void hover:text-white transition-all">
-              VIEW CASE STUDIES
+              VIEW SERVICES
             </button>
           </div>
         </div>
@@ -69,29 +69,29 @@ export default function Home() {
           <div className="relative aspect-video rounded-sm overflow-hidden shadow-2xl group">
             <Image
               src="/backdrop-lab.png"
-              alt="AI Intelligence Lab"
+              alt="AI Implementation"
               fill
               className="object-cover group-hover:scale-110 transition-transform duration-[2s]"
             />
             <div className="absolute inset-0 bg-citrus/10 mix-blend-overlay" />
           </div>
           <div>
-            <h2 className="futuristic-title text-4xl mb-8">THE INNOVATION HUB</h2>
+            <h2 className="futuristic-title text-4xl mb-8">LOCAL SCALE ENGINE</h2>
             <p className="text-steel text-lg font-light mb-8 leading-relaxed">
-              Evolved from **KLIQT Media** (Digital Marketing), Jonny Allum Innovations is our flagship center for recursive engineering. We build the **Honeytrap Protocol**—a proprietary OSINT infrastructure that scales signal collection with zero human intervention.
+              We specialize in vertical AI integration for local and small businesses. Our agents don't just "chat"—they capture leads, qualify prospects, and manage your operational heartbeat 24/7.
             </p>
             <ul className="space-y-4 mb-12">
               <li className="flex items-center gap-4 text-xs font-bold tracking-widest text-void/60">
-                <span className="w-2 h-2 bg-citrus rounded-full" /> ADVANCED SIGNAL DISCOVERY
+                <span className="w-2 h-2 bg-citrus rounded-full" /> LEAD INTAKE AUTOMATION
               </li>
               <li className="flex items-center gap-4 text-xs font-bold tracking-widest text-void/60">
-                <span className="w-2 h-2 bg-citrus rounded-full" /> AUTONOMOUS OSINT PIPELINES
+                <span className="w-2 h-2 bg-citrus rounded-full" /> AUTONOMOUS CUSTOMER FAQs
               </li>
               <li className="flex items-center gap-4 text-xs font-bold tracking-widest text-void/60">
-                <span className="w-2 h-2 bg-citrus rounded-full" /> MARKET INTELLIGENCE MATRICES
+                <span className="w-2 h-2 bg-citrus rounded-full" /> SMART CRM WORKFLOWS
               </li>
             </ul>
-            <button className="btn-citrus">EXPLORE SYSTEMS</button>
+            <button className="btn-citrus">VIEW THE LAUNCHPAD</button>
           </div>
         </div>
       </section>
