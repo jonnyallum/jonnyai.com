@@ -2,6 +2,8 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
+import BrandLogo from "@/components/BrandLogo";
+import NodeRegistry from "@/components/NodeRegistry";
 
 export default function Home() {
   return (
@@ -34,7 +36,7 @@ export default function Home() {
       {/* --- NAVIGATION --- */}
       <nav className="fixed top-0 inset-x-0 z-50 py-8 px-8 flex justify-between items-center pointer-events-none">
         <div className="flex items-center gap-6 pointer-events-auto">
-          <h1 className="futuristic-title text-xl text-void">JAI</h1>
+          <BrandLogo />
           <div className="h-px w-12 bg-citrus/20" />
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -665,6 +667,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <NodeRegistry />
 
       {/* --- FOOTER --- */}
       <footer className="relative z-10 py-24 border-t border-void/5">
