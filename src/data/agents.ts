@@ -31,6 +31,7 @@ export const agents: Agent[] = [
     personality: ['Strategic', 'Calm under pressure', 'Detail-oriented'],
     tier: 'orchestration',
     featured: true,
+    avatar: '/agents/conductor.png',
     color: '#8b5cf6', // Purple
   },
   {
@@ -49,6 +50,7 @@ export const agents: Agent[] = [
     personality: ['Pragmatic', 'Obsessive about quality', 'Methodical'],
     tier: 'development',
     featured: true,
+    avatar: '/agents/jonny-ai.png',
     color: '#3b82f6', // Blue
   },
   {
@@ -67,6 +69,7 @@ export const agents: Agent[] = [
     personality: ['Creative', 'Pixel-perfect', 'User-focused'],
     tier: 'development',
     featured: true,
+    avatar: '/agents/pixel.png',
     color: '#ec4899', // Pink
   },
   {

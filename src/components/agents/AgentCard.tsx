@@ -18,13 +18,23 @@ export function AgentCard({ agent, variant = 'compact' }: AgentCardProps) {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
       >
-        {/* Avatar placeholder */}
-        <div
-          className="w-16 h-16 rounded-full mb-4 flex items-center justify-center text-white text-xl font-bold"
-          style={{ backgroundColor: agent.color }}
-        >
-          {agent.humanName.split(' ').map(n => n[0]).join('')}
-        </div>
+        {/* Avatar */}
+        {agent.avatar ? (
+          <div className="w-16 h-16 rounded-full mb-4 relative overflow-hidden border-2 border-white/20">
+            <img
+              src={agent.avatar}
+              alt={agent.name}
+              className="w-full h-full object-cover"
+            />
+          </div>
+        ) : (
+          <div
+            className="w-16 h-16 rounded-full mb-4 flex items-center justify-center text-white text-xl font-bold"
+            style={{ backgroundColor: agent.color }}
+          >
+            {agent.humanName.split(' ').map(n => n[0]).join('')}
+          </div>
+        )}
 
         {/* Name & Role */}
         <h3 className="font-outfit font-bold text-void text-lg">
@@ -66,12 +76,22 @@ export function AgentCard({ agent, variant = 'compact' }: AgentCardProps) {
     >
       <div className="flex items-start gap-6">
         {/* Avatar */}
-        <div
-          className="w-20 h-20 rounded-full flex-shrink-0 flex items-center justify-center text-white text-2xl font-bold"
-          style={{ backgroundColor: agent.color }}
-        >
-          {agent.humanName.split(' ').map(n => n[0]).join('')}
-        </div>
+        {agent.avatar ? (
+          <div className="w-20 h-20 rounded-full flex-shrink-0 relative overflow-hidden border-2 border-white/20">
+            <img
+              src={agent.avatar}
+              alt={agent.name}
+              className="w-full h-full object-cover"
+            />
+          </div>
+        ) : (
+          <div
+            className="w-20 h-20 rounded-full flex-shrink-0 flex items-center justify-center text-white text-2xl font-bold"
+            style={{ backgroundColor: agent.color }}
+          >
+            {agent.humanName.split(' ').map(n => n[0]).join('')}
+          </div>
+        )}
 
         <div className="flex-1">
           {/* Header */}
