@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ArrowRight, Code, Wrench, Handshake, Check } from 'lucide-react';
+import { ArrowRight, Code, Wrench, Handshake, Check, Terminal, Sparkles, Cpu } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 
 const services = [
@@ -9,126 +9,147 @@ const services = [
     id: 'framework',
     icon: Code,
     title: 'Framework License',
-    subtitle: 'Build it yourself, faster',
-    description: 'License our battle-tested AgOS framework and build your own products with enterprise-grade architecture from day one.',
+    subtitle: 'High-Performance Foundation',
+    description: 'License the AgOS core. A complete, battle-tested multi-agent architecture with built-in orchestration, authentication, and global state management.',
     features: [
-      'Complete starter kit with authentication, payments, database',
-      'Multi-agent AI orchestration built-in',
-      'Deployment pipelines and CI/CD configured',
-      'Documentation and video tutorials',
-      '90 days of Discord support',
+      'Complete AgOS Multi-Agent Starter Kit',
+      'Proprietary Orchestration Logic',
+      'Deployment-Ready CI/CD Pipelines',
+      'Technical Documentation & SOPs',
+      '90-Day Developer Support Sink',
     ],
-    ideal: 'Technical founders who want to move fast without reinventing the wheel.',
+    ideal: 'Technical teams who want to bypass 12 months of R&D.',
     price: 'From £497',
     href: '/services/framework',
-    color: 'bg-blue-500',
+    color: 'from-blue-500 to-indigo-600',
   },
   {
     id: 'builds',
     icon: Wrench,
     title: 'Done-For-You Builds',
-    subtitle: 'We build, you launch',
-    description: 'Hand off your project to the Agent Orchestra. We\'ll design, develop, and deploy a production-ready product.',
+    subtitle: 'Elite Neural Execution',
+    description: 'We architect, design, and orchestrate the build. You get a production-ready product in weeks, delivered by our elite Agent Orchestra.',
     features: [
-      'Full-stack development (web, mobile, API)',
-      'UI/UX design included',
-      'QA and security testing',
-      '30-day post-launch support',
-      'Source code ownership',
+      'End-to-End Product Architecture',
+      'Agent-Driven Full Stack Build',
+      'Security & Scalability Audits',
+      'Source Code & IP Ownership',
+      '30-Day Post-Launch Support',
     ],
-    ideal: 'Founders with clear requirements who want expert execution.',
+    ideal: 'Founders requiring enterprise-grade execution at scale.',
     price: 'From £4,997',
     href: '/services/builds',
-    color: 'bg-citrus',
+    color: 'from-citrus to-orange-600',
+    highlighted: true,
   },
   {
     id: 'partnership',
     icon: Handshake,
     title: 'Venture Partnership',
-    subtitle: 'Build together, win together',
-    description: 'We become your technical co-founder. Equity-aligned partnership for ambitious founders with big ideas.',
+    subtitle: 'Strategic Equity Alignment',
+    description: 'The ultimate partnership. We become your technical co-founder, building and scaling for equity. Zero upfront cost for validated missions.',
     features: [
-      'Full product development',
-      'Strategic guidance and roadmap planning',
-      'Ongoing iteration and scaling support',
-      'Access to our network and resources',
-      'Skin in the game—we succeed when you succeed',
+      'Full-Life-Cycle CTO Partnership',
+      'Agile Iteration & Growth Scaling',
+      'Technical Network Access',
+      'Strategic Board Guidance',
+      'Complete Alignment on Exit',
     ],
-    ideal: 'Visionary founders building category-defining companies.',
-    price: 'Equity-based',
+    ideal: 'Ambitious visionaries building category-leading brands.',
+    price: 'Equity-Based',
     href: '/services/partnership',
-    color: 'bg-purple-500',
+    color: 'from-purple-500 to-fuchsia-600',
   },
 ];
 
 export default function ServicesPage() {
   return (
-    <div className="pt-24 pb-16">
+    <div className="bg-obsidian min-h-screen text-white">
       {/* Hero */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="max-w-3xl"
-        >
-          <p className="text-citrus font-medium mb-4">Our Services</p>
-          <h1 className="font-outfit font-bold text-4xl sm:text-5xl text-void mb-6">
-            Three Paths to <span className="text-citrus">Launch</span>
+      <section className="relative pt-32 pb-20 overflow-hidden">
+        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-citrus/5 rounded-full blur-[150px] pointer-events-none" />
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-citrus text-[10px] font-black uppercase tracking-widest mb-6"
+          >
+            <Cpu className="w-3 h-3" />
+            Operational Models
+          </motion.div>
+          <h1 className="font-outfit font-black text-5xl sm:text-6xl lg:text-7xl text-white mb-8 tracking-tighter">
+            Architect Your <span className="text-citrus">Velocity</span>
           </h1>
-          <p className="text-xl text-steel">
-            Whether you want to build it yourself, have us build for you, or partner on the journey—we have a path that fits your needs and ambitions.
+          <p className="text-xl text-gray-400 font-light leading-relaxed max-w-3xl">
+            JonnyAi provides three distinct vectors for project execution. Choose the path
+            that aligns with your technical capabilities and growth trajectory.
           </p>
-        </motion.div>
+        </div>
       </section>
 
-      {/* Services Grid */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
-        <div className="space-y-8">
+      {/* Services Stack */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-32">
+        <div className="space-y-12">
           {services.map((service, index) => (
             <motion.div
               key={service.id}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="bg-white rounded-2xl border border-ghost overflow-hidden hover:border-citrus/30 transition-colors"
+              className={`glass-panel border-white/5 overflow-hidden transition-all duration-500 group relative ${service.highlighted ? 'border-citrus/40 bg-citrus/[0.03]' : 'hover:border-white/20'}`}
             >
-              <div className="grid grid-cols-1 lg:grid-cols-3">
-                {/* Left: Info */}
-                <div className="p-8 lg:col-span-2">
+              <div className="grid grid-cols-1 lg:grid-cols-4 items-stretch">
+                {/* Visual Accent */}
+                <div className={`hidden lg:block w-2 bg-gradient-to-b ${service.color}`} />
+
+                {/* Info Container */}
+                <div className="p-10 lg:col-span-2">
                   <div className="flex items-center gap-4 mb-4">
-                    <div className={`w-12 h-12 rounded-xl ${service.color} flex items-center justify-center`}>
-                      <service.icon className="w-6 h-6 text-white" />
+                    <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${service.color} flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform`}>
+                      <service.icon className="w-7 h-7 text-white" />
                     </div>
                     <div>
-                      <h2 className="font-outfit font-bold text-2xl text-void">{service.title}</h2>
-                      <p className="text-steel">{service.subtitle}</p>
+                      <h2 className="font-outfit font-black text-3xl text-white uppercase tracking-tighter">{service.title}</h2>
+                      <p className="text-citrus font-mono text-[10px] uppercase tracking-[0.2em]">{service.subtitle}</p>
                     </div>
                   </div>
 
-                  <p className="text-steel mb-6">{service.description}</p>
+                  <p className="text-gray-400 mb-8 font-light leading-relaxed">{service.description}</p>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
                     {service.features.map((feature) => (
-                      <div key={feature} className="flex items-start gap-2">
-                        <Check className="w-5 h-5 text-citrus flex-shrink-0 mt-0.5" />
-                        <span className="text-sm text-steel">{feature}</span>
+                      <div key={feature} className="flex items-start gap-3">
+                        <div className="mt-1 w-4 h-4 rounded-full bg-white/5 border border-white/10 flex items-center justify-center flex-shrink-0">
+                          <Check className="w-2.5 h-2.5 text-citrus" />
+                        </div>
+                        <span className="text-[13px] text-gray-500">{feature}</span>
                       </div>
                     ))}
                   </div>
 
-                  <p className="text-sm text-steel">
-                    <strong>Ideal for:</strong> {service.ideal}
-                  </p>
+                  <div className="pt-6 border-t border-white/5 flex items-center gap-3">
+                    <span className="text-[10px] font-black uppercase tracking-widest text-gray-600">Perfect Integration Vector:</span>
+                    <span className="text-[10px] text-white font-bold">{service.ideal}</span>
+                  </div>
                 </div>
 
-                {/* Right: CTA */}
-                <div className="bg-ghost p-8 flex flex-col justify-center items-center text-center">
-                  <p className="text-sm text-steel mb-2">Starting at</p>
-                  <p className="font-outfit font-bold text-3xl text-void mb-6">{service.price}</p>
-                  <Button href={service.href} className="w-full">
-                    Learn More
-                    <ArrowRight className="w-4 h-4" />
+                {/* Action Card */}
+                <div className="bg-white/[0.02] p-12 flex flex-col justify-center border-l border-white/5 text-center lg:text-left relative overflow-hidden">
+                  <div className="absolute top-0 right-0 p-4 opacity-5 pointer-events-none">
+                    <Terminal className="w-32 h-32 text-white" />
+                  </div>
+
+                  <p className="text-[10px] font-black uppercase tracking-widest text-gray-600 mb-2">Base Investment</p>
+                  <p className="font-outfit font-black text-5xl text-white mb-10 tracking-tighter">{service.price}</p>
+
+                  <Button
+                    href={service.href}
+                    className={`w-full py-5 rounded-2xl font-black uppercase tracking-widest text-xs transition-all ${service.highlighted ? 'bg-white text-obsidian' : 'bg-white/5 text-white border-white/10 hover:bg-white hover:text-black'}`}
+                  >
+                    Explore Protocol
+                    <ArrowRight className="w-4 h-4 ml-2" />
                   </Button>
                 </div>
               </div>
@@ -137,69 +158,54 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* Comparison Quick View */}
-      <section className="bg-ghost py-20">
+      {/* Comparison Protocol */}
+      <section className="py-32 bg-white/[0.02] border-y border-white/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-12"
-          >
-            <h2 className="font-outfit font-bold text-3xl text-void mb-4">
-              Not Sure Which Path?
-            </h2>
-            <p className="text-steel max-w-2xl mx-auto">
-              Here&apos;s a quick comparison to help you decide.
-            </p>
+          <motion.div className="text-center mb-16">
+            <h2 className="font-outfit font-black text-4xl text-white mb-6 uppercase tracking-tighter">Engagement <span className="text-gray-500">Comparison</span></h2>
+            <p className="text-gray-500 max-w-2xl mx-auto font-light leading-relaxed">Selecting the right operational model is critical for project success.</p>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="overflow-x-auto"
-          >
-            <table className="w-full bg-white rounded-xl overflow-hidden">
+          <motion.div className="overflow-x-auto glass-card border-white/5 p-4 sm:p-8">
+            <table className="w-full text-left">
               <thead>
-                <tr className="border-b border-ghost">
-                  <th className="px-6 py-4 text-left text-sm font-medium text-steel"></th>
-                  <th className="px-6 py-4 text-center text-sm font-medium text-void">Framework</th>
-                  <th className="px-6 py-4 text-center text-sm font-medium text-citrus">Builds</th>
-                  <th className="px-6 py-4 text-center text-sm font-medium text-purple-600">Partnership</th>
+                <tr className="border-b border-white/10">
+                  <th className="px-6 py-6 text-xs font-black uppercase tracking-widest text-gray-600">Capability Matrix</th>
+                  <th className="px-6 py-6 text-center text-xs font-black uppercase tracking-widest text-white">Framework</th>
+                  <th className="px-6 py-6 text-center text-xs font-black uppercase tracking-widest text-citrus">Builds</th>
+                  <th className="px-6 py-6 text-center text-xs font-black uppercase tracking-widest text-purple-400">Partnership</th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody className="divide-y divide-white/5">
                 {[
-                  { label: 'You build the product', framework: true, builds: false, partnership: false },
-                  { label: 'We build the product', framework: false, builds: true, partnership: true },
-                  { label: 'Upfront payment', framework: true, builds: true, partnership: false },
-                  { label: 'Equity involved', framework: false, builds: false, partnership: true },
-                  { label: 'Ongoing support', framework: '90 days', builds: '30 days', partnership: 'Continuous' },
-                  { label: 'Strategic guidance', framework: false, builds: false, partnership: true },
-                  { label: 'Best for', framework: 'Technical founders', builds: 'Busy founders', partnership: 'Visionaries' },
+                  { label: 'Client Development Ownership', framework: true, builds: false, partnership: false },
+                  { label: 'Agent Orchestra Execution', framework: false, builds: true, partnership: true },
+                  { label: 'Upfront Capital Required', framework: true, builds: true, partnership: false },
+                  { label: 'Equity Stake / Alignment', framework: false, builds: false, partnership: true },
+                  { label: 'Active Support Sink', framework: '90 Days', builds: '30 Days', partnership: 'Continuous' },
+                  { label: 'Product Architecture Authority', framework: 'Client', builds: 'JonnyAi', partnership: 'Shared' },
                 ].map((row, i) => (
-                  <tr key={row.label} className={i % 2 === 0 ? 'bg-ghost/30' : ''}>
-                    <td className="px-6 py-4 text-sm font-medium text-void">{row.label}</td>
-                    <td className="px-6 py-4 text-center text-sm">
+                  <tr key={row.label} className="group hover:bg-white/[0.02] transition-colors">
+                    <td className="px-6 py-6 text-sm font-medium text-gray-400">{row.label}</td>
+                    <td className="px-6 py-6 text-center">
                       {typeof row.framework === 'boolean' ? (
-                        row.framework ? <Check className="w-5 h-5 text-green-500 mx-auto" /> : <span className="text-steel">—</span>
+                        row.framework ? <Check className="w-5 h-5 text-citrus mx-auto" /> : <span className="text-gray-800">—</span>
                       ) : (
-                        <span className="text-steel">{row.framework}</span>
+                        <span className="text-xs font-bold text-white">{row.framework}</span>
                       )}
                     </td>
-                    <td className="px-6 py-4 text-center text-sm">
+                    <td className="px-6 py-6 text-center">
                       {typeof row.builds === 'boolean' ? (
-                        row.builds ? <Check className="w-5 h-5 text-green-500 mx-auto" /> : <span className="text-steel">—</span>
+                        row.builds ? <Check className="w-5 h-5 text-citrus mx-auto" /> : <span className="text-gray-800">—</span>
                       ) : (
-                        <span className="text-steel">{row.builds}</span>
+                        <span className="text-xs font-bold text-white">{row.builds}</span>
                       )}
                     </td>
-                    <td className="px-6 py-4 text-center text-sm">
+                    <td className="px-6 py-6 text-center">
                       {typeof row.partnership === 'boolean' ? (
-                        row.partnership ? <Check className="w-5 h-5 text-green-500 mx-auto" /> : <span className="text-steel">—</span>
+                        row.partnership ? <Check className="w-5 h-5 text-citrus mx-auto" /> : <span className="text-gray-800">—</span>
                       ) : (
-                        <span className="text-steel">{row.partnership}</span>
+                        <span className="text-xs font-bold text-white">{row.partnership}</span>
                       )}
                     </td>
                   </tr>
@@ -210,26 +216,22 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="bg-void rounded-2xl p-8 lg:p-12 text-center"
-        >
-          <h2 className="font-outfit font-bold text-3xl text-white mb-4">
-            Still Have Questions?
+      {/* Closing CTA */}
+      <section className="py-40 relative">
+        <div className="absolute inset-0 bg-gradient-to-t from-citrus/5 to-transparent pointer-events-none" />
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+          <h2 className="font-outfit font-black text-4xl sm:text-5xl text-white mb-8 tracking-tighter uppercase whitespace-nowrap">
+            Unsure of the <span className="text-citrus italic">Vector?</span>
           </h2>
-          <p className="text-white/70 max-w-2xl mx-auto mb-8">
-            Book a free 30-minute discovery call. We&apos;ll help you figure out the best path
-            for your specific situation.
+          <p className="text-gray-400 text-xl mb-12 font-light max-w-2xl mx-auto">
+            Book a discovery call. We&apos;ll assess your mission requirements and determine
+            the most efficient operational model for your launch.
           </p>
-          <Button href="/contact" size="lg">
-            Book Discovery Call
-            <ArrowRight className="w-5 h-5" />
+          <Button href="/contact" size="lg" className="bg-white text-obsidian px-12 py-5 rounded-2xl font-black uppercase tracking-widest text-xs hover:bg-citrus hover:text-white transition-all shadow-2xl">
+            Book Technical Audit
+            <ArrowRight className="w-4 h-4 ml-2" />
           </Button>
-        </motion.div>
+        </div>
       </section>
     </div>
   );

@@ -1,54 +1,82 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
+  --background: #030305; /* Deep Obsidian */
 }
 
 @theme {
   --font-inter: "Inter", sans-serif;
   --font-outfit: "Outfit", sans-serif;
   
+  --color-obsidian: #030305;
+  --color-obsidian-light: #0f1115;
   --color-titanium: #ffffff;
   --color-ghost: #f8f9fa;
-  --color-citrus: #d97757;
-  --color-void: #0a0a0a;
-  --color-steel: #333333;
+  --color-citrus: #d97757; /* Keep legacy accent or shift? sticking to it for now */
+  --color-electric-purple: #8b5cf6;
+  --color-neon-cyan: #06b6d4;
+  --color-void: #000000;
+  --color-steel: #9ca3af;
+  
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-pulse-slow: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+  }
 }
 
 @layer base {
   body {
-    @apply bg-titanium text-void font-inter antialiased;
-    background-image: radial-gradient(circle at 50% 50%, rgba(217, 119, 87, 0.05) 0%, transparent 100%);
+    @apply bg-obsidian text-titanium font-inter antialiased overflow-x-hidden;
+    background-image: 
+      radial-gradient(circle at 15% 50%, rgba(139, 92, 246, 0.08) 0%, transparent 25%), 
+      radial-gradient(circle at 85% 30%, rgba(6, 182, 212, 0.08) 0%, transparent 25%);
   }
 }
 
 @layer components {
+  .btn-primary {
+    @apply relative overflow-hidden bg-white text-obsidian font-bold py-4 px-8 rounded-full transition-all duration-300 hover:shadow-[0_0_30px_rgba(255,255,255,0.3)] hover:scale-105 active:scale-95 flex items-center justify-center gap-2;
+  }
+
   .btn-citrus {
-    @apply bg-citrus text-white font-bold py-3 px-8 rounded-lg transition-all duration-300 hover:shadow-[0_0_20px_rgba(217,119,87,0.4)] hover:scale-105 active:scale-95;
+    @apply relative overflow-hidden bg-gradient-to-r from-citrus to-[#e08e6d] text-white font-bold py-4 px-8 rounded-full transition-all duration-300 hover:shadow-[0_0_30px_rgba(217,119,87,0.4)] hover:scale-105 active:scale-95 flex items-center justify-center gap-2;
+  }
+
+  .btn-glow {
+    @apply bg-white/5 backdrop-blur-md border border-white/10 text-white font-medium py-3 px-6 rounded-full transition-all duration-300 hover:bg-white/10 hover:border-white/20 hover:shadow-[0_0_20px_rgba(255,255,255,0.1)];
   }
 
   .glass-card {
-    @apply bg-white/80 backdrop-blur-xl border border-ghost shadow-[0_10px_30px_rgba(0,0,0,0.05)] rounded-2xl p-6;
+    @apply bg-white/5 backdrop-blur-xl border border-white/10 shadow-[0_10px_30px_rgba(0,0,0,0.2)] rounded-3xl p-8 transition-all duration-300 hover:bg-white/10 hover:border-white/20;
+  }
+
+  .glass-panel {
+    @apply bg-[#0a0a0c]/80 backdrop-blur-2xl border border-white/5 rounded-[2rem];
   }
 
   .futuristic-title {
-    @apply font-outfit font-extrabold text-void;
+    @apply font-outfit font-black text-white tracking-tight;
+  }
+  
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-white via-white to-gray-400;
+  }
+  
+  .text-gradient-citrus {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-citrus to-[#ffbe98];
   }
 }
 
 @layer utilities {
-  .line-clamp-2 {
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+  .text-balance {
+    text-wrap: balance;
   }
-
-  .line-clamp-3 {
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+  
+  .mask-gradient-b {
+    mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
   }
 }
 
@@ -70,14 +98,15 @@ html {
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--color-ghost);
+  background: var(--color-obsidian);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--color-steel);
+  background: var(--color-white);
   border-radius: 4px;
+  opacity: 0.2;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-void);
+  background: var(--color-citrus);
 }

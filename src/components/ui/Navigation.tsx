@@ -1,9 +1,9 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, ChevronDown } from 'lucide-react';
+import { Menu, X, ChevronDown, Sparkles } from 'lucide-react';
 import { Button } from './Button';
 import { siteConfig } from '@/data/pricing';
 
@@ -26,20 +26,38 @@ const navItems = [
 export function Navigation() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-ghost">
+    <nav
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? 'py-4' : 'py-6'
+        }`}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+        <div className={`
+          relative flex items-center justify-between h-16 px-6 rounded-2xl transition-all duration-500
+          ${scrolled ? 'bg-obsidian/80 backdrop-blur-xl border border-white/5 shadow-2xl' : 'bg-transparent'}
+        `}>
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2">
-            <span className="font-outfit font-bold text-xl text-void">
+          <Link href="/" className="flex items-center gap-2 group">
+            <div className="w-8 h-8 bg-citrus rounded-lg flex items-center justify-center group-hover:rotate-12 transition-transform shadow-lg shadow-citrus/20">
+              <Sparkles className="w-5 h-5 text-white" />
+            </div>
+            <span className="font-outfit font-black text-xl text-white tracking-tighter">
               Jonny<span className="text-citrus">Ai</span>
             </span>
           </Link>
 
           {/* Desktop Nav */}
-          <div className="hidden md:flex items-center gap-6">
+          <div className="hidden md:flex items-center gap-8">
             {navItems.map((item) => (
               <div key={item.label} className="relative">
                 {item.children ? (
@@ -48,23 +66,24 @@ export function Navigation() {
                     onMouseEnter={() => setServicesOpen(true)}
                     onMouseLeave={() => setServicesOpen(false)}
                   >
-                    <button className="flex items-center gap-1 text-steel hover:text-void transition-colors">
+                    <button className={`flex items-center gap-1 text-sm font-medium transition-colors ${servicesOpen ? 'text-citrus' : 'text-gray-400 hover:text-white'}`}>
                       {item.label}
-                      <ChevronDown className="w-4 h-4" />
+                      <ChevronDown className={`w-3 h-3 transition-transform duration-300 ${servicesOpen ? 'rotate-180' : ''}`} />
                     </button>
                     <AnimatePresence>
                       {servicesOpen && (
                         <motion.div
-                          initial={{ opacity: 0, y: 10 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          exit={{ opacity: 0, y: 10 }}
-                          className="absolute top-full left-0 mt-2 w-56 bg-white rounded-lg shadow-xl border border-ghost py-2"
+                          initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                          animate={{ opacity: 1, y: 0, scale: 1 }}
+                          exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                          className="absolute top-full left-0 mt-4 w-64 bg-black/90 backdrop-blur-2xl rounded-2xl shadow-2xl border border-white/10 py-3 overflow-hidden"
                         >
+                          <div className="absolute inset-0 bg-gradient-to-br from-citrus/5 to-transparent pointer-events-none" />
                           {item.children.map((child) => (
                             <Link
                               key={child.href}
                               href={child.href}
-                              className="block px-4 py-2 text-steel hover:bg-ghost hover:text-void transition-colors"
+                              className="block px-6 py-3 text-sm text-gray-400 hover:bg-white/5 hover:text-citrus transition-all"
                             >
                               {child.label}
                             </Link>
@@ -76,9 +95,10 @@ export function Navigation() {
                 ) : (
                   <Link
                     href={item.href}
-                    className="text-steel hover:text-void transition-colors"
+                    className="text-sm font-medium text-gray-400 hover:text-white transition-colors relative group"
                   >
                     {item.label}
+                    <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-citrus transition-all group-hover:w-full" />
                   </Link>
                 )}
               </div>
@@ -86,15 +106,19 @@ export function Navigation() {
           </div>
 
           {/* CTA */}
-          <div className="hidden md:block">
-            <Button href={siteConfig.calendlyUrl} size="sm">
-              Book a Call
+          <div className="hidden md:flex items-center gap-4">
+            <Button
+              href={siteConfig.calendlyUrl}
+              size="sm"
+              className="bg-white text-obsidian rounded-xl px-6 hover:bg-citrus hover:text-white transition-all font-bold"
+            >
+              Book Call
             </Button>
           </div>
 
           {/* Mobile menu button */}
           <button
-            className="md:hidden p-2"
+            className="md:hidden p-2 text-white"
             onClick={() => setMobileOpen(!mobileOpen)}
           >
             {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -106,23 +130,23 @@ export function Navigation() {
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-white border-b border-ghost"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            className="md:hidden absolute top-full left-0 right-0 mx-4 mt-2 bg-obsidian-light/95 backdrop-blur-2xl rounded-3xl border border-white/10 shadow-3xl overflow-hidden"
           >
-            <div className="px-4 py-4 space-y-2">
+            <div className="px-6 py-8 space-y-4">
               {navItems.map((item) => (
                 <div key={item.label}>
                   {item.children ? (
                     <>
-                      <p className="text-steel font-medium py-2">{item.label}</p>
-                      <div className="pl-4 space-y-1">
+                      <p className="text-gray-500 text-xs font-black uppercase tracking-widest mb-4">{item.label}</p>
+                      <div className="grid grid-cols-1 gap-2 pl-2">
                         {item.children.map((child) => (
                           <Link
                             key={child.href}
                             href={child.href}
-                            className="block py-2 text-steel hover:text-void"
+                            className="block py-2 text-lg text-white font-outfit"
                             onClick={() => setMobileOpen(false)}
                           >
                             {child.label}
@@ -133,7 +157,7 @@ export function Navigation() {
                   ) : (
                     <Link
                       href={item.href}
-                      className="block py-2 text-steel hover:text-void"
+                      className="block py-2 text-xl text-white font-outfit font-bold"
                       onClick={() => setMobileOpen(false)}
                     >
                       {item.label}
@@ -141,9 +165,9 @@ export function Navigation() {
                   )}
                 </div>
               ))}
-              <div className="pt-4">
-                <Button href={siteConfig.calendlyUrl} className="w-full">
-                  Book a Call
+              <div className="pt-6">
+                <Button href={siteConfig.calendlyUrl} className="w-full bg-citrus text-white py-4 rounded-2xl">
+                  Book Discovery Call
                 </Button>
               </div>
             </div>

@@ -1,86 +1,72 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ArrowRight, Check, Code, Zap, Shield, Database, Layers, Cloud } from 'lucide-react';
+import { ArrowRight, Check, Code, Zap, Shield, Database, Layers, Cloud, Terminal, Cpu, Monitor } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import { frameworkPricing } from '@/data/pricing';
 
 const features = [
-  {
-    icon: Layers,
-    title: 'Full-Stack Architecture',
-    description: 'Next.js 16 + React 19 + TypeScript. Production-ready from the first commit.',
-  },
-  {
-    icon: Database,
-    title: 'Database & Auth',
-    description: 'Supabase integration with row-level security, auth flows, and real-time subscriptions.',
-  },
-  {
-    icon: Zap,
-    title: 'AI Orchestration',
-    description: 'Multi-agent system with task routing, memory banks, and self-improving workflows.',
-  },
-  {
-    icon: Shield,
-    title: 'Security First',
-    description: 'OWASP-compliant security practices, input validation, and audit logging.',
-  },
-  {
-    icon: Cloud,
-    title: 'Deployment Ready',
-    description: 'Vercel/Railway deployment configs, CI/CD pipelines, and environment management.',
-  },
-  {
-    icon: Code,
-    title: 'Clean Code',
-    description: 'ESLint, Prettier, TypeScript strict mode. Code that scales and maintainability that lasts.',
-  },
+  { icon: Layers, title: 'Full-Stack Architecture', description: 'Next.js 15 + React 19 + TypeScript. Production-ready architecture from the first committed line.' },
+  { icon: Database, title: 'Neural Database & Auth', description: 'Deep Supabase integration with RLS security, real-time sync, and enterprise auth flows.' },
+  { icon: Zap, title: 'AI Orchestration Grid', description: 'Multi-agent orchestration system with persistent memory, task routing, and reflexive logic.' },
+  { icon: Shield, title: 'Hardened Security', description: 'OWASP-compliant headers, strict input validation, and real-time security event auditing.' },
+  { icon: Cloud, title: 'Cloud-Ready CI/CD', description: 'Automated Vercel/Railway deployment logic with staging environments and zero-downtime rollouts.' },
+  { icon: Monitor, title: 'Dynamic UI Core', description: 'Framer Motion integrated with Tailwind CSS for high-performance, cinematic user interfaces.' },
 ];
 
 const included = [
-  'Complete monorepo structure',
-  'Authentication (email, OAuth, magic link)',
-  'Database schema and migrations',
-  'Payment integration (Stripe)',
-  'Email templates (Resend)',
-  'Admin dashboard',
-  'User management',
-  'API route templates',
-  'Component library (40+ components)',
-  'Form validation (Zod)',
-  'Error handling and logging',
-  'Analytics integration',
-  'SEO optimization',
-  'Responsive design',
-  'Dark mode support',
-  'Accessibility (WCAG 2.1)',
+  'Full AgOS Monorepo Structure',
+  'Multi-Flow Authentication',
+  'Database Schemas & Migrations',
+  'Stripe Payment Orchestration',
+  'Neural Email Templates',
+  'Admin Control Center',
+  'Agent Connectivity Hub',
+  'API Route Scaffolding',
+  '60+ Premium Components',
+  'Zod Schema Validation',
+  'Global Error Handling',
+  'Analytics Inbound Wiring',
+  'Structured SEO Meta Engine',
+  'Responsive Native Layouts',
+  'Obsidian Dark Mode Core',
+  'WCAG 2.1 Accessibility',
 ];
 
 export default function FrameworkPage() {
   return (
-    <div className="pt-24 pb-16">
+    <div className="bg-obsidian min-h-screen text-white">
       {/* Hero */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="max-w-3xl"
-        >
-          <p className="text-citrus font-medium mb-4">Framework License</p>
-          <h1 className="font-outfit font-bold text-4xl sm:text-5xl text-void mb-6">
-            Build It Yourself, <span className="text-citrus">10x Faster</span>
-          </h1>
-          <p className="text-xl text-steel">
-            Skip months of boilerplate and architecture decisions. Get a battle-tested foundation
-            and start building your unique features from day one.
+      <section className="relative pt-32 pb-20 overflow-hidden">
+        <div className="absolute top-0 right-1/2 translate-x-1/2 w-[800px] h-[600px] bg-blue-500/5 blur-[120px] rounded-full pointer-events-none" />
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-[10px] font-black uppercase tracking-[0.3em] mb-6"
+          >
+            <Terminal className="w-3 h-3" />
+            Infrastructure // Framework
+          </motion.div>
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="font-outfit font-black text-5xl sm:text-6xl lg:text-7xl text-white mb-8 tracking-tighter"
+          >
+            Own the <span className="text-blue-500">Architecture</span> <br />
+            of the Future.
+          </motion.h1>
+          <p className="text-xl text-gray-400 font-light leading-relaxed max-w-3xl">
+            Stop building boilerplate. License the AgOS core and deploy a battle-hardened multi-agent
+            foundation that scales from MVP to Series A in record time.
           </p>
-        </motion.div>
+        </div>
       </section>
 
-      {/* Features Grid */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {/* Feature Grid */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-32">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {features.map((feature, index) => (
             <motion.div
               key={feature.title}
@@ -88,154 +74,139 @@ export default function FrameworkPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="bg-white rounded-xl p-6 border border-ghost hover:border-citrus/30 transition-colors"
+              className="glass-panel p-10 border-white/5 hover:border-blue-500/30 transition-all group"
             >
-              <div className="w-12 h-12 rounded-lg bg-citrus/10 flex items-center justify-center mb-4">
-                <feature.icon className="w-6 h-6 text-citrus" />
+              <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center mb-8 group-hover:scale-110 group-hover:bg-blue-500/10 transition-all">
+                <feature.icon className="w-6 h-6 text-blue-400" />
               </div>
-              <h3 className="font-outfit font-bold text-lg text-void mb-2">{feature.title}</h3>
-              <p className="text-steel text-sm">{feature.description}</p>
+              <h3 className="font-outfit font-bold text-lg text-white mb-4 uppercase tracking-tight">{feature.title}</h3>
+              <p className="text-gray-500 text-sm leading-relaxed font-light">{feature.description}</p>
             </motion.div>
           ))}
         </div>
       </section>
 
       {/* What's Included */}
-      <section className="bg-ghost py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="bg-white/[0.02] py-32 border-y border-white/5 relative overflow-hidden">
+        <div className="absolute inset-0 bg-grid-white/[0.01]" />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-12"
+            className="text-center mb-20"
           >
-            <h2 className="font-outfit font-bold text-3xl text-void mb-4">
-              Everything You Need
+            <h2 className="font-outfit font-black text-4xl text-white mb-6 uppercase tracking-tighter">
+              Integrated <span className="text-blue-500">Core</span> Stack
             </h2>
-            <p className="text-steel max-w-2xl mx-auto">
-              No more piecing together tutorials and hoping they work together.
-              It&apos;s all here, integrated and tested.
+            <p className="text-gray-500 max-w-2xl mx-auto font-light leading-relaxed">
+              No more fragmented tutorials. We deliver a cohesive digital organism
+              where every module is engineered to work in sync.
             </p>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4"
-          >
-            {included.map((item) => (
-              <div key={item} className="flex items-center gap-3 bg-white rounded-lg p-4">
-                <Check className="w-5 h-5 text-citrus flex-shrink-0" />
-                <span className="text-sm text-void">{item}</span>
-              </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {included.map((item, idx) => (
+              <motion.div
+                key={item}
+                initial={{ opacity: 0, x: -10 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.05 }}
+                className="flex items-center gap-4 bg-white/[0.03] border border-white/5 rounded-2xl p-5 hover:bg-white/[0.05] transition-all group hover:border-blue-500/20"
+              >
+                <div className="w-6 h-6 rounded-full bg-blue-500/10 flex items-center justify-center flex-shrink-0 group-hover:bg-blue-500/30">
+                  <Check className="w-3 h-3 text-blue-500" />
+                </div>
+                <span className="text-xs font-bold text-gray-400 group-hover:text-white uppercase tracking-tight">{item}</span>
+              </motion.div>
             ))}
-          </motion.div>
+          </div>
         </div>
       </section>
 
-      {/* Pricing */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      {/* Pricing Modules */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-12"
+          className="text-center mb-24"
         >
-          <h2 className="font-outfit font-bold text-3xl text-void mb-4">
-            Choose Your Package
+          <h2 className="font-outfit font-black text-4xl text-white mb-6 uppercase tracking-tighter">
+            Deployment <span className="text-blue-500">Tiers</span>
           </h2>
-          <p className="text-steel max-w-2xl mx-auto">
-            From solo builders to funded startups, we have a package that fits.
-          </p>
+          <p className="text-gray-500 max-w-2xl mx-auto font-light">Select the bandwidth that fits your project scale.</p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {frameworkPricing.slice(0, 3).map((tier, index) => (
             <motion.div
               key={tier.name}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className={`bg-white rounded-2xl p-8 border ${
-                tier.highlighted ? 'border-citrus ring-2 ring-citrus/20' : 'border-ghost'
-              }`}
+              className={`glass-card p-12 border transition-all duration-300 relative group overflow-hidden ${tier.highlighted ? 'border-blue-500/40 bg-blue-500/[0.03] ring-1 ring-blue-500/20' : 'border-white/5'
+                }`}
             >
-              {tier.highlighted && (
-                <span className="inline-block bg-citrus text-white text-xs font-medium px-3 py-1 rounded-full mb-4">
-                  Most Popular
-                </span>
-              )}
-              <h3 className="font-outfit font-bold text-xl text-void mb-2">{tier.name}</h3>
-              <p className="text-steel text-sm mb-4">{tier.description}</p>
-              <p className="font-outfit font-bold text-3xl text-void mb-6">
-                {tier.price}
-                {tier.price !== 'Custom' && <span className="text-sm font-normal text-steel"> one-time</span>}
-              </p>
+              <div className="absolute top-0 right-0 p-4 opacity-5 pointer-events-none group-hover:rotate-12 transition-transform">
+                <Cpu className="w-24 h-24 text-white" />
+              </div>
 
-              <ul className="space-y-3 mb-8">
+              {tier.highlighted && (
+                <div className="absolute top-0 left-12 -translate-y-1/2 px-4 py-1 bg-blue-500 text-white text-[10px] font-black uppercase tracking-widest rounded-full">
+                  Standard Directive
+                </div>
+              )}
+              <h3 className="font-outfit font-black text-2xl text-white mb-4 uppercase tracking-tight">{tier.name}</h3>
+              <p className="text-gray-600 text-sm mb-6 leading-relaxed h-16">{tier.description}</p>
+              <div className="mb-10 flex flex-col">
+                <span className="font-outfit font-black text-4xl text-white">{tier.price}</span>
+                <span className="text-gray-700 text-[10px] font-black uppercase mt-1">One-Time License Fee</span>
+              </div>
+
+              <ul className="space-y-4 mb-12 h-64 overflow-y-auto custom-scrollbar">
                 {tier.features.map((feature) => (
-                  <li key={feature} className="flex items-start gap-2">
-                    <Check className="w-5 h-5 text-citrus flex-shrink-0 mt-0.5" />
-                    <span className="text-sm text-steel">{feature}</span>
+                  <li key={feature} className="flex items-start gap-3 text-sm text-gray-500">
+                    <Check className="w-4 h-4 text-blue-500 flex-shrink-0 mt-0.5" />
+                    <span>{feature}</span>
                   </li>
                 ))}
               </ul>
 
               <Button
                 href="/contact"
-                variant={tier.highlighted ? 'primary' : 'outline'}
-                className="w-full"
+                className={`w-full py-5 rounded-2xl text-xs font-black uppercase tracking-widest ${tier.highlighted ? 'bg-white text-obsidian shadow-xl shadow-white/5' : 'bg-white/5 text-white border-white/10 hover:bg-white hover:text-black'}`}
               >
-                Get Started
+                Initiate Purchase
+                <ArrowRight className="w-4 h-4 ml-2" />
               </Button>
             </motion.div>
           ))}
         </div>
-
-        <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          className="text-center text-steel mt-8"
-        >
-          Need something custom? <a href="/contact" className="text-citrus hover:underline">Let&apos;s talk</a>
-        </motion.p>
       </section>
 
-      {/* FAQ */}
-      <section className="bg-ghost py-20">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* FAQ Panels */}
+      <section className="bg-white/[0.02] py-32 border-t border-white/5">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-12"
+            className="text-center mb-20"
           >
-            <h2 className="font-outfit font-bold text-3xl text-void mb-4">
-              Common Questions
+            <h2 className="font-outfit font-black text-4xl text-white mb-4 uppercase tracking-tighter">
+              Deployment <span className="text-gray-500">Queries</span>
             </h2>
           </motion.div>
 
-          <div className="space-y-6">
+          <div className="space-y-4">
             {[
-              {
-                q: 'Do I need to be technical?',
-                a: 'Yes, the framework is designed for developers who can write TypeScript/React code. If you want us to build for you, check out our Done-For-You Builds.',
-              },
-              {
-                q: 'Can I use this for client projects?',
-                a: 'Yes! The standard license allows unlimited projects for yourself or your clients. You just can\'t resell the framework itself.',
-              },
-              {
-                q: 'What happens after the support period?',
-                a: 'You still have full access to the framework and any updates released during your support period. Extended support is available as an add-on.',
-              },
-              {
-                q: 'Is there a refund policy?',
-                a: 'Due to the digital nature of the product, we don\'t offer refunds. But we\'re happy to answer any questions before you purchase.',
-              },
+              { q: 'Is this a technical product?', a: 'Yes. AgOS is an architecture framework for TypeScript/React engineers. If you require zero-code execution, see our Done-For-You Builds.' },
+              { q: 'Commercial project rights?', a: 'The license grants unlimited usage for personal and client projects. Resale of the AgOS core framework itself is strictly prohibited.' },
+              { q: 'Legacy support windows?', a: 'Every purchase includes full access to the current neural version plus all minor updates. Elite support tiers include direct integration help.' },
+              { q: 'Neural refund protocol?', a: 'Due to the immediate delivery of digital architecture assets, we do not offer refunds. We recommend a technical audit before purchase.' },
             ].map((faq, index) => (
               <motion.div
                 key={faq.q}
@@ -243,41 +214,43 @@ export default function FrameworkPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="bg-white rounded-xl p-6"
+                className="glass-card p-10 border-white/5 hover:bg-white/[0.04] transition-all group"
               >
-                <h3 className="font-outfit font-bold text-void mb-2">{faq.q}</h3>
-                <p className="text-steel text-sm">{faq.a}</p>
+                <h3 className="font-outfit font-bold text-white mb-4 group-hover:text-blue-500 transition-colors uppercase text-sm tracking-tight">{faq.q}</h3>
+                <p className="text-gray-500 text-sm leading-relaxed font-light">{faq.a}</p>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="bg-void rounded-2xl p-8 lg:p-12 text-center"
-        >
-          <h2 className="font-outfit font-bold text-3xl text-white mb-4">
-            Ready to Build?
-          </h2>
-          <p className="text-white/70 max-w-2xl mx-auto mb-8">
-            Join dozens of founders who&apos;ve shipped faster with our framework.
-            Get started today and launch in weeks, not months.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button href="/contact" size="lg">
-              Get the Framework
-              <ArrowRight className="w-5 h-5" />
-            </Button>
-            <Button href="/services" variant="outline" size="lg" className="border-white/20 text-white hover:bg-white/10">
-              Compare Options
-            </Button>
-          </div>
-        </motion.div>
+      {/* Closing CTA */}
+      <section className="py-40 relative">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="glass-panel p-20 border-white/5 bg-blue-500/[0.02]"
+          >
+            <h2 className="font-outfit font-black text-5xl text-white mb-8 tracking-tighter">
+              Ready to <span className="text-blue-500">Accelerate?</span>
+            </h2>
+            <p className="text-gray-400 text-xl mb-12 font-light max-w-2xl mx-auto leading-relaxed">
+              Join the elite group of technical founders shipping category-defining
+              products on the AgOS architecture.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-6 justify-center">
+              <Button href="/contact" size="lg" className="bg-white text-obsidian px-12 py-5 rounded-2xl font-black uppercase tracking-widest text-xs hover:bg-blue-500 hover:text-white transition-all shadow-2xl shadow-white/5">
+                Acquire Framework
+                <ArrowRight className="w-5 h-5 ml-2" />
+              </Button>
+              <Button href="/services" variant="outline" size="lg" className="border-white/10 text-white bg-white/5 backdrop-blur-md px-12 py-5 rounded-2xl font-black uppercase tracking-widest text-xs hover:bg-white hover:text-black transition-all">
+                Compare Vector Models
+              </Button>
+            </div>
+          </motion.div>
+        </div>
       </section>
     </div>
   );

@@ -1,37 +1,51 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Check, ArrowRight } from 'lucide-react';
+import { Check, ArrowRight, ShieldCheck, Zap, TrendingUp, HelpCircle } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import { frameworkPricing, buildPricing, partnershipTerms, addOns, retainers, siteConfig } from '@/data/pricing';
 
 export default function PricingPage() {
   return (
-    <div className="pt-24 pb-16">
+    <div className="bg-obsidian min-h-screen text-white">
       {/* Hero */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center">
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="font-outfit font-bold text-4xl sm:text-5xl text-void mb-6"
-        >
-          Transparent <span className="text-citrus">Pricing</span>
-        </motion.h1>
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.1 }}
-          className="text-xl text-steel max-w-2xl mx-auto"
-        >
-          No hidden fees. No surprise invoices. Know exactly what you&apos;re paying before we start.
-        </motion.p>
+      <section className="relative pt-32 pb-20 overflow-hidden">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[500px] bg-electric-purple/5 blur-[120px] rounded-full pointer-events-none" />
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-gray-400 text-xs font-black uppercase tracking-widest mb-8"
+          >
+            <ShieldCheck className="w-3 h-3 text-citrus" />
+            Transparent Investment Tiers
+          </motion.div>
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="font-outfit font-black text-5xl sm:text-6xl text-white mb-8 tracking-tighter"
+          >
+            Transparent <span className="text-citrus">Investment</span>
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1 }}
+            className="text-xl text-gray-400 max-w-2xl mx-auto font-light leading-relaxed"
+          >
+            No hidden fees. No legacy overhead. You pay for the results our Agent Orchestra delivers, not for junior developer training hours.
+          </motion.p>
+        </div>
       </section>
 
       {/* Framework Pricing */}
-      <section className="py-16 bg-ghost">
+      <section className="py-24 bg-white/[0.02]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="font-outfit font-bold text-2xl text-void mb-2">Framework License</h2>
-          <p className="text-steel mb-8">Deploy our agent architecture in your own projects</p>
+          <div className="mb-16">
+            <h2 className="font-outfit font-black text-3xl text-white mb-4 uppercase tracking-tight">Framework License</h2>
+            <p className="text-gray-500 max-w-2xl">Deploy our proprietary multi-agent architecture within your own projects or internal teams.</p>
+          </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
             {frameworkPricing.map((tier, index) => (
@@ -41,32 +55,31 @@ export default function PricingPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className={`bg-white rounded-2xl p-6 ${tier.highlighted ? 'ring-2 ring-citrus shadow-lg' : 'border border-ghost'}`}
+                whileHover={{ y: -5 }}
+                className={`glass-panel p-8 relative transition-all duration-300 ${tier.highlighted ? 'border-citrus/40 bg-citrus/5' : 'border-white/5 hover:border-white/20'}`}
               >
                 {tier.highlighted && (
-                  <p className="text-citrus text-xs font-semibold uppercase mb-2">Most Popular</p>
+                  <div className="absolute top-0 right-10 -translate-y-1/2 px-3 py-1 bg-citrus text-white text-[10px] font-black uppercase tracking-widest rounded-full">
+                    Recommended
+                  </div>
                 )}
-                <h3 className="font-outfit font-bold text-lg text-void">{tier.name}</h3>
-                <div className="my-4">
-                  <span className="font-outfit font-bold text-2xl text-void">{tier.price}</span>
-                  {tier.priceNote && (
-                    <span className="text-steel text-sm ml-1">{tier.priceNote}</span>
-                  )}
+                <h3 className="font-outfit font-bold text-lg text-white mb-2">{tier.name}</h3>
+                <div className="mb-6 flex items-baseline gap-1">
+                  <span className="font-outfit font-black text-3xl text-white">{tier.price}</span>
+                  {tier.priceNote && <span className="text-gray-600 text-[10px] uppercase font-bold">{tier.priceNote}</span>}
                 </div>
-                <p className="text-steel text-sm mb-4">{tier.description}</p>
-                <ul className="space-y-2 mb-6">
+                <p className="text-gray-500 text-xs leading-relaxed mb-6 h-12 overflow-hidden">{tier.description}</p>
+                <ul className="space-y-3 mb-8 h-48 overflow-y-auto custom-scrollbar">
                   {tier.features.map((feature, i) => (
-                    <li key={i} className="flex items-start gap-2 text-sm text-steel">
-                      <Check className="w-4 h-4 text-citrus flex-shrink-0 mt-0.5" />
+                    <li key={i} className="flex items-start gap-2 text-xs text-gray-400">
+                      <Check className="w-3 h-3 text-citrus flex-shrink-0 mt-0.5" />
                       {feature}
                     </li>
                   ))}
                 </ul>
                 <Button
                   href={tier.ctaLink}
-                  variant={tier.highlighted ? 'primary' : 'outline'}
-                  size="sm"
-                  className="w-full"
+                  className={`w-full py-4 rounded-xl text-[10px] font-black uppercase tracking-widest ${tier.highlighted ? 'bg-citrus text-white' : 'bg-white/5 text-gray-400 border-white/10 hover:bg-white hover:text-black'}`}
                 >
                   {tier.cta}
                 </Button>
@@ -77,12 +90,14 @@ export default function PricingPage() {
       </section>
 
       {/* Build Pricing */}
-      <section className="py-16">
+      <section className="py-32">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="font-outfit font-bold text-2xl text-void mb-2">Done-For-You Builds</h2>
-          <p className="text-steel mb-8">We build your product at 10x speed</p>
+          <div className="mb-16">
+            <h2 className="font-outfit font-black text-3xl text-white mb-4 uppercase tracking-tight">Done-For-You Builds</h2>
+            <p className="text-gray-500 max-w-2xl">We execute the build using our orchestra. You own the code, the IP, and the competitive advantage.</p>
+          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {buildPricing.map((tier, index) => (
               <motion.div
                 key={tier.id}
@@ -90,136 +105,104 @@ export default function PricingPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className={`bg-white rounded-2xl p-6 ${tier.highlighted ? 'ring-2 ring-citrus shadow-lg' : 'border border-ghost'}`}
+                className={`glass-card p-10 relative transition-all duration-300 ${tier.highlighted ? 'border-citrus/40 bg-citrus/5 ring-1 ring-citrus/20' : 'border-white/5'}`}
               >
                 {tier.highlighted && (
-                  <p className="text-citrus text-xs font-semibold uppercase mb-2">Most Popular</p>
+                  <div className="absolute top-0 left-10 -translate-y-1/2 px-4 py-1 bg-citrus text-white text-[10px] font-black uppercase tracking-widest rounded-full">
+                    High Demand
+                  </div>
                 )}
-                <h3 className="font-outfit font-bold text-lg text-void">{tier.name}</h3>
-                <div className="my-4">
-                  <span className="font-outfit font-bold text-2xl text-void">{tier.price}</span>
-                  {tier.priceNote && (
-                    <p className="text-steel text-sm">{tier.priceNote}</p>
-                  )}
+                <h3 className="font-outfit font-bold text-xl text-white mb-2">{tier.name}</h3>
+                <div className="mb-6 flex flex-col">
+                  <span className="font-outfit font-black text-4xl text-white">{tier.price}</span>
+                  {tier.priceNote && <span className="text-gray-600 text-[10px] uppercase font-bold mt-1">{tier.priceNote}</span>}
                 </div>
-                <p className="text-steel text-sm mb-4">{tier.description}</p>
-                <ul className="space-y-2 mb-6">
+                <p className="text-gray-500 text-sm leading-relaxed mb-8">{tier.description}</p>
+                <ul className="space-y-4 mb-10">
                   {tier.features.map((feature, i) => (
-                    <li key={i} className="flex items-start gap-2 text-sm text-steel">
-                      <Check className="w-4 h-4 text-citrus flex-shrink-0 mt-0.5" />
+                    <li key={i} className="flex items-start gap-2 text-sm text-gray-400">
+                      <Zap className="w-4 h-4 text-citrus flex-shrink-0 mt-0.5" />
                       {feature}
                     </li>
                   ))}
                 </ul>
                 <Button
                   href={tier.ctaLink}
-                  variant={tier.highlighted ? 'primary' : 'outline'}
-                  size="sm"
-                  className="w-full"
+                  className={`w-full py-5 rounded-2xl text-xs font-black uppercase tracking-widest ${tier.highlighted ? 'bg-white text-obsidian shadow-xl shadow-white/5' : 'bg-white/5 text-white border-white/10 hover:bg-white hover:text-black'}`}
                 >
                   {tier.cta}
+                  <ArrowRight className="w-4 h-4 ml-2" />
                 </Button>
               </motion.div>
             ))}
           </div>
 
-          <p className="text-center text-steel text-sm mt-6">
-            All packages include full source code ownership, documentation, and 30 days post-launch support.
-          </p>
+          <div className="mt-16 flex items-center justify-center gap-8 py-6 bg-white/[0.02] border border-white/10 rounded-2xl">
+            <div className="flex items-center gap-2 text-xs text-gray-500">
+              <ShieldCheck className="w-4 h-4 text-citrus" /> Full Source IP Ownership
+            </div>
+            <div className="flex items-center gap-2 text-xs text-gray-500">
+              <ShieldCheck className="w-4 h-4 text-citrus" /> Technical Documentation
+            </div>
+            <div className="flex items-center gap-2 text-xs text-gray-500">
+              <ShieldCheck className="w-4 h-4 text-citrus" /> 30-Day Launch Support
+            </div>
+          </div>
         </div>
       </section>
 
       {/* Venture Partnership */}
-      <section className="py-16 bg-ghost">
+      <section className="py-32 bg-white/[0.02]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="font-outfit font-bold text-2xl text-void mb-2">Venture Partnership</h2>
-          <p className="text-steel mb-8">Zero cash upfront—we succeed when you succeed</p>
+          <div className="text-center mb-20">
+            <h2 className="font-outfit font-black text-4xl text-white mb-4 italic uppercase tracking-tighter">Venture <span className="text-citrus">Partnership</span></h2>
+            <p className="text-gray-500 max-w-2xl mx-auto">High-stakes collaboration for validated ideas. We build for equity when the mission is worth the risk.</p>
+          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16 px-4 sm:px-0">
             {Object.values(partnershipTerms).map((term, index) => (
               <motion.div
-                key={term.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                key={(term as any).title}
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="bg-white rounded-2xl p-6 border border-ghost"
+                className="glass-panel p-10 border-white/5 flex flex-col items-center text-center group hover:bg-white/[0.05] transition-all"
               >
-                <h3 className="font-outfit font-bold text-lg text-void mb-2">{term.title}</h3>
+                <TrendingUp className="w-10 h-10 text-citrus mb-6 group-hover:scale-110 transition-transform" />
+                <h3 className="font-outfit font-black text-xl text-white mb-4 uppercase tracking-tight">{(term as any).title}</h3>
                 {'range' in term && (
-                  <p className="font-outfit font-bold text-2xl text-citrus mb-2">{term.range}</p>
+                  <p className="font-outfit font-black text-4xl text-white mb-4 tracking-tighter">{(term as any).range}</p>
                 )}
-                <p className="text-steel text-sm mb-4">{term.description}</p>
-                <p className="text-xs text-steel/70 mb-4">
-                  <strong>Best for:</strong> {term.bestFor}
-                </p>
-                {'example' in term && (
-                  <p className="text-xs text-steel italic bg-ghost rounded-lg p-3">
-                    {term.example}
-                  </p>
-                )}
+                <p className="text-gray-500 text-sm mb-6 leading-relaxed">{(term as any).description}</p>
+                <div className="mt-auto pt-6 border-t border-white/5 w-full">
+                  <p className="text-[10px] text-gray-600 uppercase font-black mb-1 tracking-widest">Ideal Target</p>
+                  <p className="text-white text-xs font-bold">{(term as any).bestFor}</p>
+                </div>
               </motion.div>
             ))}
           </div>
 
           <div className="text-center">
-            <Button href="/services/partnership">
-              Apply for Partnership
-              <ArrowRight className="w-4 h-4" />
+            <Button href="/services/partnership" className="btn-glow text-white px-12 py-5 rounded-2xl text-xs font-black uppercase tracking-widest">
+              Apply for Partnership Support
+              <ArrowRight className="w-4 h-4 ml-2" />
             </Button>
           </div>
         </div>
       </section>
 
-      {/* Add-ons & Retainers */}
-      <section className="py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-            {/* Add-ons */}
-            <div>
-              <h2 className="font-outfit font-bold text-2xl text-void mb-6">Service Add-ons</h2>
-              <div className="bg-white rounded-2xl border border-ghost overflow-hidden">
-                {addOns.map((addon, i) => (
-                  <div
-                    key={addon.name}
-                    className={`flex justify-between items-center p-4 ${i !== addOns.length - 1 ? 'border-b border-ghost' : ''}`}
-                  >
-                    <span className="text-steel">{addon.name}</span>
-                    <span className="font-outfit font-bold text-void">{addon.rate}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Retainers */}
-            <div>
-              <h2 className="font-outfit font-bold text-2xl text-void mb-6">Monthly Retainers</h2>
-              <div className="space-y-4">
-                {retainers.map((retainer) => (
-                  <div
-                    key={retainer.name}
-                    className="bg-white rounded-2xl border border-ghost p-4"
-                  >
-                    <div className="flex justify-between items-center mb-2">
-                      <span className="font-outfit font-bold text-void">{retainer.name}</span>
-                      <span className="font-outfit font-bold text-citrus">{retainer.price}</span>
-                    </div>
-                    <p className="text-steel text-sm">{retainer.description}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* FAQ */}
-      <section className="py-16 bg-ghost">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="font-outfit font-bold text-2xl text-void mb-8 text-center">
-            Frequently Asked Questions
-          </h2>
-          <div className="space-y-6">
+      <section className="py-32 bg-obsidian border-t border-white/5">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-center gap-3 mb-16">
+            <HelpCircle className="w-8 h-8 text-citrus" />
+            <h2 className="font-outfit font-black text-4xl text-white tracking-tighter">
+              Common <span className="text-gray-500">Queries</span>
+            </h2>
+          </div>
+
+          <div className="space-y-4">
             {[
               {
                 q: 'Do you require deposits?',
@@ -244,31 +227,33 @@ export default function PricingPage() {
             ].map((faq, i) => (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.05 }}
-                className="bg-white rounded-xl p-6"
+                className="glass-card p-8 border-white/5 hover:bg-white/5 group transition-all"
               >
-                <h3 className="font-outfit font-bold text-void mb-2">{faq.q}</h3>
-                <p className="text-steel text-sm">{faq.a}</p>
+                <h3 className="font-outfit font-bold text-white mb-3 group-hover:text-citrus transition-colors">{faq.q}</h3>
+                <p className="text-gray-500 text-sm leading-relaxed">{faq.a}</p>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-16">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="font-outfit font-bold text-3xl text-void mb-6">
-            Ready to Get Started?
+      {/* CTA Closer */}
+      <section className="py-32 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-t from-citrus/5 to-transparent pointer-events-none" />
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+          <h2 className="font-outfit font-black text-4xl sm:text-5xl text-white mb-8 tracking-tighter">
+            Ready to <span className="text-citrus">Initiate</span> Your Project?
           </h2>
-          <p className="text-steel text-lg mb-8">
-            Book a discovery call to discuss your project and find the right package for you.
+          <p className="text-gray-400 text-xl mb-12 font-light max-w-2xl mx-auto">
+            Book a discovery call to discuss your vision and find the right investment package for your launch.
           </p>
-          <Button href={siteConfig.calendlyUrl} size="lg">
-            Book a Discovery Call
+          <Button href={siteConfig.calendlyUrl} className="bg-white text-obsidian px-12 py-5 rounded-2xl font-black uppercase tracking-widest text-xs hover:bg-citrus hover:text-white transition-all shadow-2xl">
+            Book Discovery Call
+            <ArrowRight className="w-4 h-4 ml-2" />
           </Button>
         </div>
       </section>
