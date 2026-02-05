@@ -1,9 +1,9 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Check, ArrowRight, ShieldCheck, Zap, TrendingUp, HelpCircle } from 'lucide-react';
+import { Check, ArrowRight, ShieldCheck, Zap, TrendingUp, HelpCircle, Server, Settings, Plus } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
-import { frameworkPricing, buildPricing, partnershipTerms, addOns, retainers, siteConfig } from '@/data/pricing';
+import { frameworkPricing, buildPricing, partnershipTerms, websiteManagement, hosting, addOns, siteConfig } from '@/data/pricing';
 
 export default function PricingPage() {
   return (
@@ -188,6 +188,142 @@ export default function PricingPage() {
               Apply for Partnership Support
               <ArrowRight className="w-4 h-4 ml-2" />
             </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Website Management */}
+      <section className="py-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="mb-16">
+            <div className="flex items-center gap-3 mb-4">
+              <Settings className="w-8 h-8 text-citrus" />
+              <h2 className="font-outfit font-black text-3xl text-white uppercase tracking-tight">Website Management</h2>
+            </div>
+            <p className="text-gray-500 max-w-2xl">Ongoing support and development to keep your site running smoothly and evolving with your business.</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {websiteManagement.map((tier, index) => (
+              <motion.div
+                key={tier.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className={`glass-card p-10 relative transition-all duration-300 ${tier.highlighted ? 'border-citrus/40 bg-citrus/5 ring-1 ring-citrus/20' : 'border-white/5'}`}
+              >
+                {tier.highlighted && (
+                  <div className="absolute top-0 left-10 -translate-y-1/2 px-4 py-1 bg-citrus text-white text-[10px] font-black uppercase tracking-widest rounded-full">
+                    Popular
+                  </div>
+                )}
+                <h3 className="font-outfit font-bold text-xl text-white mb-2">{tier.name}</h3>
+                <div className="mb-6 flex items-baseline gap-1">
+                  <span className="font-outfit font-black text-4xl text-white">{tier.price}</span>
+                  <span className="text-gray-600 text-sm">{tier.period}</span>
+                </div>
+                <p className="text-gray-500 text-sm leading-relaxed mb-8">{tier.description}</p>
+                <ul className="space-y-3 mb-10">
+                  {tier.features.map((feature, i) => (
+                    <li key={i} className="flex items-start gap-2 text-sm text-gray-400">
+                      <Check className="w-4 h-4 text-citrus flex-shrink-0 mt-0.5" />
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+                <Button
+                  href={`/contact?interest=management-${tier.id}`}
+                  className={`w-full py-4 rounded-xl text-xs font-black uppercase tracking-widest ${tier.highlighted ? 'bg-white text-obsidian' : 'bg-white/5 text-white border-white/10 hover:bg-white hover:text-black'}`}
+                >
+                  Get Started
+                </Button>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Hosting */}
+      <section className="py-24 bg-white/[0.02]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="mb-16">
+            <div className="flex items-center gap-3 mb-4">
+              <Server className="w-8 h-8 text-citrus" />
+              <h2 className="font-outfit font-black text-3xl text-white uppercase tracking-tight">Hosting</h2>
+            </div>
+            <p className="text-gray-500 max-w-2xl">Reliable, fast hosting with the infrastructure your project needs. All plans include SSL and CDN.</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {hosting.map((tier, index) => (
+              <motion.div
+                key={tier.id}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className={`glass-card p-10 relative transition-all duration-300 ${tier.highlighted ? 'border-citrus/40 bg-citrus/5 ring-1 ring-citrus/20' : 'border-white/5'}`}
+              >
+                {tier.highlighted && (
+                  <div className="absolute top-0 left-10 -translate-y-1/2 px-4 py-1 bg-citrus text-white text-[10px] font-black uppercase tracking-widest rounded-full">
+                    Most Popular
+                  </div>
+                )}
+                <h3 className="font-outfit font-bold text-xl text-white mb-2">{tier.name}</h3>
+                <div className="mb-6 flex items-baseline gap-1">
+                  <span className="font-outfit font-black text-4xl text-white">{tier.price}</span>
+                  <span className="text-gray-600 text-sm">{tier.period}</span>
+                </div>
+                <p className="text-gray-500 text-sm leading-relaxed mb-8">{tier.description}</p>
+                <ul className="space-y-3 mb-10">
+                  {tier.features.map((feature, i) => (
+                    <li key={i} className="flex items-start gap-2 text-sm text-gray-400">
+                      <Check className="w-4 h-4 text-citrus flex-shrink-0 mt-0.5" />
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+                <Button
+                  href={`/contact?interest=hosting-${tier.id}`}
+                  className={`w-full py-4 rounded-xl text-xs font-black uppercase tracking-widest ${tier.highlighted ? 'bg-white text-obsidian' : 'bg-white/5 text-white border-white/10 hover:bg-white hover:text-black'}`}
+                >
+                  Get Started
+                </Button>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Add-Ons */}
+      <section className="py-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="mb-16">
+            <div className="flex items-center gap-3 mb-4">
+              <Plus className="w-8 h-8 text-citrus" />
+              <h2 className="font-outfit font-black text-3xl text-white uppercase tracking-tight">Add-Ons</h2>
+            </div>
+            <p className="text-gray-500 max-w-2xl">Enhance your project with these one-time services or ongoing extras.</p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {addOns.map((addon, index) => (
+              <motion.div
+                key={addon.name}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.05 }}
+                className="glass-panel p-6 border-white/5 hover:border-citrus/30 transition-all group"
+              >
+                <div className="flex justify-between items-start mb-3">
+                  <h3 className="font-outfit font-bold text-white group-hover:text-citrus transition-colors">{addon.name}</h3>
+                  <span className="font-outfit font-black text-citrus text-lg">{addon.price}</span>
+                </div>
+                <p className="text-gray-500 text-xs leading-relaxed">{addon.description}</p>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>

@@ -196,19 +196,116 @@ export const partnershipTerms = {
   },
 };
 
-export const addOns = [
-  { name: 'SEO Optimization (Goldie)', rate: '£75/hr' },
-  { name: 'AI Automation & Gen', rate: '£75/hr' },
-  { name: 'Course Creation', rate: '£60/hr' },
-  { name: 'Video Editing', rate: '£50/hr' },
-  { name: 'Data & Spreadsheets', rate: '£50/hr' },
+export const websiteManagement = [
+  {
+    id: 'basic',
+    name: 'Basic',
+    price: '£100',
+    period: '/month',
+    description: 'Maintenance and minor updates',
+    features: [
+      'Monthly security updates',
+      'Plugin/dependency updates',
+      'Minor text & image changes',
+      'Uptime monitoring',
+      'Email support',
+    ],
+  },
+  {
+    id: 'business',
+    name: 'Business',
+    price: '£250',
+    period: '/month',
+    description: 'Active development and support',
+    features: [
+      'Everything in Basic',
+      'Weekly updates & changes',
+      'New page creation',
+      'Feature additions',
+      'Priority support',
+      'Monthly report',
+    ],
+    highlighted: true,
+  },
+  {
+    id: 'enterprise',
+    name: 'Enterprise',
+    price: '£1,500',
+    period: '/month',
+    description: 'Full system management - we run your digital operations',
+    features: [
+      'Everything in Business',
+      'Dedicated account manager',
+      'Full tech stack management',
+      'Database administration',
+      'CI/CD pipeline management',
+      'Performance optimization',
+      '24/7 emergency support',
+      'Quarterly strategy reviews',
+    ],
+  },
 ];
 
-export const retainers = [
-  { name: 'Basic Management', price: '£100/mo', description: 'Maintenance and minor updates' },
-  { name: 'Full Management', price: '£250/mo', description: 'Active development and support' },
-  { name: 'Digital Dominance', price: '£500/mo', description: 'Full-stack growth partner' },
+export const hosting = [
+  {
+    id: 'starter',
+    name: 'Starter',
+    price: '£10.99',
+    period: '/month',
+    description: 'Static sites & landing pages',
+    features: [
+      'Static hosting',
+      'Free SSL certificate',
+      'CDN included',
+      '10GB bandwidth',
+      'Custom domain',
+    ],
+  },
+  {
+    id: 'professional',
+    name: 'Professional',
+    price: '£24.99',
+    period: '/month',
+    description: 'Dynamic sites with database',
+    features: [
+      'Everything in Starter',
+      'PostgreSQL database',
+      '50GB bandwidth',
+      'Daily backups',
+      'Staging environment',
+    ],
+    highlighted: true,
+  },
+  {
+    id: 'scale',
+    name: 'Scale',
+    price: '£49.99',
+    period: '/month',
+    description: 'High-traffic apps & complex systems',
+    features: [
+      'Everything in Professional',
+      'Dedicated resources',
+      'Unlimited bandwidth',
+      'Redis caching',
+      'Load balancing',
+      'Priority infrastructure support',
+    ],
+  },
 ];
+
+export const addOns = [
+  { name: 'SEO Audit & Optimization', price: '£297', description: 'Full site audit + on-page fixes' },
+  { name: 'Website Makeover', price: '£497', description: 'Visual refresh without full rebuild' },
+  { name: 'Database Setup', price: '£99', description: 'PostgreSQL or Supabase config' },
+  { name: 'Analytics Setup', price: '£99', description: 'GA4, Plausible, or custom dashboards' },
+  { name: 'Email Integration', price: '£149', description: 'Transactional emails & newsletters' },
+  { name: 'Backup Service', price: '£9.99/mo', description: 'Automated daily backups with restore' },
+  { name: 'Performance Boost', price: '£197', description: 'Speed optimization & Core Web Vitals' },
+  { name: 'Security Hardening', price: '£197', description: 'Security audit & fixes' },
+];
+
+// Legacy export for backward compatibility
+export const retainers = websiteManagement;
 
 // Site configuration
 export const siteConfig = {
