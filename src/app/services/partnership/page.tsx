@@ -53,7 +53,7 @@ export default function PartnershipPage() {
           </motion.h1>
           <p className="text-xl text-gray-400 font-light leading-relaxed max-w-3xl">
             We don&apos;t bill hours. We build empires. The Venture Partnership is an elite equity-aligned
-            model for ambitious founders who need a technical co-founder with world-class velocity.
+            model for ambitious founders who need a technical co-founder with rapid velocity.
           </p>
         </div>
       </section>

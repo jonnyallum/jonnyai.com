@@ -8,11 +8,10 @@ import { AgentCard } from '@/components/agents/AgentCard';
 import { featuredAgents } from '@/data/agents';
 
 const timeline = [
-  { year: '2018', title: 'The Spark', description: 'Jonny began experimenting with automation and AI, frustrated by the inefficiencies he saw in traditional development.' },
-  { year: '2020', title: 'First Agents', description: 'Built the first specialized AI agents to handle repetitive tasks, freeing up time for creative problem-solving.' },
-  { year: '2022', title: 'The Orchestra Forms', description: 'Developed the multi-agent orchestration system—20+ specialized agents working in harmony.' },
-  { year: '2024', title: 'AgOS Launches', description: 'The Antigravity Operating System goes live, enabling 10x faster development for clients worldwide.' },
-  { year: '2026', title: 'Venture Studio', description: 'Evolved into a full venture studio—building, partnering, and licensing our technology to ambitious founders.' },
+  { year: '2024', title: 'The Spark', description: 'Jonny discovered the power of AI tools, using them to navigate a complex personal challenge. The experience revealed what was possible.' },
+  { year: 'Jan 2025', title: 'The Leap', description: 'Left a decade-long career as General Manager to pursue a vision: an AI-powered agency that could outpace traditional development.' },
+  { year: '2025', title: 'The Orchestra Forms', description: 'Built the agent framework from scratch—20+ specialized AI personas, each with defined skills and personalities.' },
+  { year: '2026', title: 'AgOS 3.0', description: 'The Antigravity Operating System reaches maturity. Multi-agent orchestration, memory banks, and client deployments go live.' },
 ];
 
 const values = [

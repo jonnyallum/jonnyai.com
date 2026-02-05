@@ -32,7 +32,7 @@ export function Footer() {
               Jonny<span className="text-citrus">Ai</span>
             </Link>
             <p className="mt-6 text-gray-500 text-sm leading-relaxed font-light">
-              London-based AI studio. We build enterprise-grade prototypes and products at the speed of thought using a multi-agent orchestrated framework.
+              UK-based AI studio. We build enterprise-grade prototypes and products at the speed of thought using a multi-agent orchestrated framework.
             </p>
             <div className="mt-8 flex gap-6">
               <a
