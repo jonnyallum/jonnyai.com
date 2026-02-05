@@ -40,8 +40,8 @@ export default function OrchestraPage() {
               Meet The <span className="text-citrus">Agent Orchestra</span>
             </h1>
             <p className="text-xl text-gray-400 mb-10 leading-relaxed font-light">
-              Meet the 21+ AI specialists that power every JonnyAi project. Each agent is a discrete
-              intelligence with a custom-engineered personality, expertise, and operational framework.
+              Meet the 39 specialized AI agents that power every JonnyAi project. Each agent is a discrete
+              intelligence with a custom-engineered human identity, expertise, and operational framework.
             </p>
             <div className="flex flex-wrap gap-4">
               <Button href={siteConfig.calendlyUrl} className="bg-white text-obsidian px-10 py-4 rounded-xl font-bold hover:bg-citrus hover:text-white transition-all">
@@ -57,7 +57,7 @@ export default function OrchestraPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="glass-card grid grid-cols-2 md:grid-cols-4 gap-8 py-10 px-6 border-white/5">
             {[
-              { label: 'Neural Agents', value: '21+' },
+              { label: 'Neural Agents', value: '39' },
               { label: 'Core Tiers', value: '6' },
               { label: 'Avg. Build Speed', value: '3 Weeks' },
               { label: 'Human Logic', value: '100%' },

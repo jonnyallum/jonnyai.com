@@ -5,7 +5,7 @@ import { Footer } from "@/components/ui/Footer";
 
 export const metadata: Metadata = {
   title: "JonnyAi | AI Development Studio | Build 10x Faster",
-  description: "We deploy 20+ specialised AI agents to build your product in weeks, not months. Framework licensing, done-for-you builds, and equity partnerships.",
+  description: "We deploy 39 specialized AI agents to build your product in weeks, not months. Framework licensing, done-for-you builds, and equity partnerships.",
   keywords: ["AI development", "software development", "venture studio", "multi-agent AI", "UK", "web development", "mobile apps"],
   authors: [{ name: "Jonny Allum", url: "https://www.jonnyai.co.uk" }],
   creator: "Jonny Allum Innovations Ltd",
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     url: "https://www.jonnyai.co.uk",
     siteName: "JonnyAi",
     title: "JonnyAi | AI Development Studio | Build 10x Faster",
-    description: "We deploy 20+ specialised AI agents to build your product in weeks, not months.",
+    description: "We deploy 39 specialized AI agents to build your product in weeks, not months.",
   },
   twitter: {
     card: "summary_large_image",

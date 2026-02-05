@@ -10,14 +10,14 @@ import { featuredAgents } from '@/data/agents';
 const timeline = [
   { year: '2024', title: 'The Spark', description: 'Jonny discovered the power of AI tools, using them to navigate a complex personal challenge. The experience revealed what was possible.' },
   { year: 'Jan 2025', title: 'The Leap', description: 'Left a decade-long career as General Manager to pursue a vision: an AI-powered agency that could outpace traditional development.' },
-  { year: '2025', title: 'The Orchestra Forms', description: 'Built the agent framework from scratch—20+ specialized AI personas, each with defined skills and personalities.' },
+  { year: '2025', title: 'The Orchestra Forms', description: 'Built the agent framework from scratch—39 specialized AI agents, each with defined human identities and elite skills.' },
   { year: '2026', title: 'AgOS 3.0', description: 'The Antigravity Operating System reaches maturity. Multi-agent orchestration, memory banks, and client deployments go live.' },
 ];
 
 const values = [
   { icon: Zap, title: 'Speed Without Sacrifice', description: 'We move fast, but never at the cost of quality. Our agents ensure every detail is perfect.' },
   { icon: Brain, title: 'Human + AI Synergy', description: 'AI amplifies human creativity. Every project has Jonny\'s personal oversight and strategic direction.' },
-  { icon: Shield, title: 'Enterprise-Grade Quality', description: 'Sentinel agent ensures security, QA, and compliance on every single deliverable.' },
+  { icon: Shield, title: 'Enterprise-Grade Quality', description: '@Sam and @Vigil ensure security, QA, and architectural integrity on every single deliverable.' },
   { icon: Target, title: 'Outcome-Focused', description: 'We don\'t bill hours. We deliver results. Your success is how we measure ours.' },
   { icon: Users, title: 'True Partnership', description: 'We\'re not vendors—we\'re partners. Your wins are our wins, literally through equity alignment.' },
   { icon: Rocket, title: 'Continuous Innovation', description: 'Our agents learn from every project, constantly improving their capabilities and processes.' },
@@ -46,8 +46,8 @@ export default function AboutPage() {
               The Architecture of <br /> <span className="text-transparent bg-clip-text bg-gradient-to-r from-citrus to-orange-400">High-Velocity Intelligence</span>
             </h1>
             <p className="text-xl text-gray-400 font-light leading-relaxed max-w-3xl">
-              JonnyAi isn&apos;t just an agency—it&apos;s a new paradigm. One human architect orchestrating
-              21+ AI specialists to deliver enterprise-grade software at the speed of thought.
+              JonnyAi isn&apos;t just an agency—it&apos;s a stateful Hive Mind. One human architect orchestrating
+              39 specialized AI agents to deliver enterprise-grade software at the speed of thought.
             </p>
           </motion.div>
         </div>
